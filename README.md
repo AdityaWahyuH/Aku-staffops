@@ -161,12 +161,7 @@ Pengembangan dilakukan secara bertahap berdasarkan hasil evaluasi dosen pembimbi
 
 ## 7. Tim Pengembang
 
-Proyek ini dikembangkan secara berkelompok oleh:
-
-- Adit
-- Darel
-- Putri
-- Vivi
+Proyek ini dikembangkan secara berkelompok
 
 ## 8. Kolaborasi Pengembangan
 
