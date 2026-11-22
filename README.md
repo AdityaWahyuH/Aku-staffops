@@ -178,14 +178,6 @@ Aplikasi saat ini telah memiliki struktur Laravel, database MySQL, autentikasi a
 Pengembangan berikutnya mencakup penyempurnaan manajemen akun staf, validasi penjadwalan, publikasi massal, ekspor jadwal, laporan, serta pengujian sistem.
 
 Data yang digunakan pada tahap awal merupakan data demonstrasi dan bukan data operasional sebenarnya.
-
-## 10. Catatan Keamanan
-
-- Jangan mengunggah file `.env` ke repository.
-- Jangan memasukkan password database atau akun produksi ke GitHub.
-- Gunakan data demonstrasi selama pengembangan dan pengujian.
-- Penggunaan data perusahaan harus mengikuti izin dan ketentuan yang berlaku.
-
 ---
 
 **AKU Shift — Monitoring Ketersediaan dan Penjadwalan Shift Cleaning Service**
