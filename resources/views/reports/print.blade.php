@@ -1,0 +1,9 @@
+<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Laporan Penjadwalan Cleaning Service</title>
+<style>body{font:12px/1.5 Arial,sans-serif;margin:28px;color:#1c3049}h1{font-size:21px;margin-bottom:5px}.muted{color:#718094}.toolbar{padding:12px;background:#eff4fa;margin-bottom:15px}.toolbar button{padding:8px 14px;border:0;background:#2563eb;color:#fff;cursor:pointer}table{width:100%;border-collapse:collapse;margin-top:18px}td,th{border:1px solid #cad4e0;padding:9px;text-align:left}th{background:#e8eef7}tr{break-inside:avoid}.foot{margin-top:25px;color:#718094;font-size:10px}@media print{@page{size:A4 portrait;margin:13mm}body{margin:0}.toolbar{display:none}thead{display:table-header-group}}</style>
+</head><body><div class="toolbar"><button onclick="window.print()">Cetak / Simpan PDF</button></div>
+<h1>LAPORAN DISTRIBUSI PENUGASAN STAF</h1><div>PT Artha Kembar Utama</div>
+<div class="muted">Periode: {{ $filters['from'] ?? 'Awal data' }} s.d. {{ $filters['to'] ?? 'Akhir data' }} | Lokasi ID: {{ $filters['location_id'] ?? 'Semua' }} | Status: {{ $filters['status'] ?? 'Semua' }} | Pencarian: {{ $filters['q'] ?? '—' }}</div>
+<table><thead><tr><th>No.</th><th>Kode Staf</th><th>Nama Staf</th><th>Total Penugasan</th><th>Dipublikasikan</th><th>Draft</th></tr></thead><tbody>
+@forelse($rows as $row)<tr><td>{{ $loop->iteration }}</td><td>{{ $row->code }}</td><td>{{ $row->name }}</td><td>{{ $row->total }}</td><td>{{ $row->published }}</td><td>{{ $row->total-$row->published }}</td></tr>
+@empty<tr><td colspan="6">Data laporan tidak tersedia.</td></tr>@endforelse
+</tbody></table><div class="foot">Laporan bersumber dari jadwal aplikasi. Validasi dengan data operasional resmi diperlukan sebelum dijadikan bukti penelitian.</div></body></html>
