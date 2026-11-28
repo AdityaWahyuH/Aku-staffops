@@ -17,21 +17,41 @@ class DatabaseSeeder extends Seeder
     {
         // Akun DEMO lokal saja. Ganti password / hapus data contoh sebelum implementasi riil.
         $admin = User::updateOrCreate(['email' => 'admin@example.test'], [
-            'name' => 'Admin Operasional (Demo)', 'role' => 'admin', 'password' => Hash::make('DemoAdmin123!'),
+            'name' => 'Admin Operasional (Demo)',
+            'role' => 'admin',
+            'password' => Hash::make('DemoAdmin123!'),
         ]);
-        $names = ['Andi Saputra', 'Budi Santoso', 'Candra Wijaya', 'Deni Kurniawan', 'Eka Pratama', 'Fajar Hidayat',
-            'Gilang Ramadhan', 'Hendra Gunawan', 'Indra Permana', 'Joko Susilo', 'Kevin Mahendra', 'Lukman Hakim'];
+        $names = [
+            'Andi Saputra',
+            'Budi Santoso',
+            'Candra Wijaya',
+            'Deni Kurniawan',
+            'Eka Pratama',
+            'Fajar Hidayat',
+            'Gilang Ramadhan',
+            'Hendra Gunawan',
+            'Indra Permana',
+            'Joko Susilo',
+            'Kevin Mahendra',
+            'Lukman Hakim'
+        ];
         foreach ($names as $index => $name) {
             $person = Staff::updateOrCreate(['code' => sprintf('STF-%03d', $index + 1)], [
-                'name' => $name, 'skill' => 'Cleaning Service', 'is_active' => true,
+                'name' => $name,
+                'skill' => 'Cleaning Service',
+                'is_active' => true,
             ]);
             Availability::updateOrCreate(['staff_id' => $person->id, 'date' => today()->toDateString()], [
                 'status' => $index === 3 ? 'leave' : ($index === 8 ? 'unavailable' : 'available'),
-                'notes' => 'Data dummy untuk pengujian', 'updated_by' => $admin->id,
+                'notes' => 'Data dummy untuk pengujian',
+                'updated_by' => $admin->id,
             ]);
             if ($index === 0) {
                 User::updateOrCreate(['email' => 'staff@example.test'], [
-                    'name' => $name, 'password' => Hash::make('DemoStaff123!'), 'role' => 'staff', 'staff_id' => $person->id,
+                    'name' => $name,
+                    'password' => Hash::make('DemoStaff123!'),
+                    'role' => 'staff',
+                    'staff_id' => $person->id,
                 ]);
             }
         }
